@@ -36,6 +36,10 @@ a {
   float: left;
 }
 
+.header-container .header-brand:hover {
+  border-bottom: thin solid black;
+}
+
 .header-container .header-nav {
   float: right;
 }
