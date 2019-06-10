@@ -1,0 +1,42 @@
+.header-container {
+  height: 50px;
+  margin-top: 8px;
+}
+
+.header-container .header-logo {
+  float: left;
+  height: 45px;
+}
+
+.header-container .header-brand {
+  font-size: 23px;
+  line-height: 23px;
+  margin: 12px 0 0 4px;
+  float: left;
+}
+
+.header-container .header-brand:hover {
+  border-bottom: thin solid black;
+}
+
+.header-container .header-nav {
+  float: right;
+}
+
+.header-container .header-nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.header-container .header-nav ul li {
+  display: inline;
+  margin: 10px 15px;
+  font-size: 23px;
+  line-height: 23px;
+}
+
+.header-container .header-nav ul li a:hover {
+  border-bottom: 1px solid;
+}

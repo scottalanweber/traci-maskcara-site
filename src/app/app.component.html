@@ -1,18 +1,6 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="maskcara-page">
-  <header class="header-container clear">
-    <a href="/"><img class="header-logo" src="assets/images/maskcara-hac-logo.png" /></a>
-    <div class="header-brand">
-      <a href="/">beautifuleigh.you</a>
-    </div>
-    <div class="header-nav">
-      <ul>
-        <li><a href="/">home</a></li>
-        <li><a href="#color-match">color match</a></li>
-        <li><button class="buy-now-button"><a href="https://traciweber.maskcarabeauty.com/en/shop/party-35821/23" target="_blank">Buy Now</a></button></li>
-      </ul>
-    </div>
-  </header>
+  <app-header></app-header>
   <div class="banner-container clear">
     <div class="banner-text">
       <p class="beautifuleigh-you-motto">Beauty begins the moment you decide to be you</p>
@@ -30,26 +18,14 @@
   <hr class="clear" />
   <div id="color-match" class="color-match-container clear">
     <div class="color-match-title">Request to be Color Matched today!</div>
-    <form action="https://docs.google.com/forms/d/e/1FAIpQLSd7asI_VhZd-PPImSV8gjISXLD2WeIcKGVmLbNx3q_wTT65dA/formResponse">
-      <div class="color-match-field"><label>Name:</label><input name="entry.560574567" type="text" /></div>
-      <div class="color-match-field"><label>Email:</label><input name="emailAddress" type="email" /></div>
-      <div class="color-match-field"><label>Phone:</label><input name="entry.1628202930" type="phone" /></div>
-      <div class="color-match-field"><input type="submit" /></div>
-    </form>
-    <span>Powered by Google Forms</span>
+    <app-color-match-form></app-color-match-form>
   </div>
   <hr class="clear" />
   <div id="buy-now" class="buy-now-container clear">
     <div class="buy-now-title">Already been color matched?</div>
-    <button class="buy-now-button"><a href="https://traciweber.maskcarabeauty.com/en/shop/party-35821/23" target="_blank">Buy Now</a></button>
+    <app-buy-button></app-buy-button>
   </div>
-  <footer class="footer-container">
-    <div class="footer-social">
-      <a href="http://facebook.com/maskcarawithtracileigh" target="_blank"><i class="fab fa-facebook"></i> <span>Facebook</span></a>
-      <a href="https://www.instagram.com/beautifuleigh.you" target="_blank"><i class="fab fa-instagram"></i> <span>Instagram</span></a>
-      <a href="https://www.pinterest.com/beautifuleighyou" target="_blank"><i class="fab fa-pinterest"></i> <span>Pinterest</span></a>
-    </div>
-  </footer>
+  <app-footer></app-footer>
 </div>
 
 <router-outlet></router-outlet>

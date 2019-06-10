@@ -1,0 +1,6 @@
+<form [formGroup]="colorMatchForm" (ngSubmit)="submitForm()">
+  <div class="color-match-field"><label>Name:</label><input name="Name" type="text" /></div>
+  <div class="color-match-field"><label>Email:</label><input name="Email" type="email" /></div>
+  <div class="color-match-field"><label>Phone:</label><input name="Phone" type="phone" /></div>
+  <div class="color-match-field"><input type="submit"[disabled]="!colorMatchForm.valid" /></div>
+</form>
