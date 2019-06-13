@@ -9,6 +9,7 @@ import {HeaderComponent} from '../shared-components/header/header.component';
 import {FooterComponent} from '../shared-components/footer/footer.component';
 import {BuyButtonComponent} from '../shared-components/buttons/buy/buy-button.component';
 import {ColorMatchFormComponent} from '../shared-components/forms/color-match/color-match.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import {ColorMatchFormComponent} from '../shared-components/forms/color-match/co
     ColorMatchFormComponent
   ],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
     CommonModule,
     AppRoutingModule,
