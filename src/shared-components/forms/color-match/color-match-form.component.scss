@@ -45,3 +45,19 @@ form {
 .color-match-field input[type="submit"]:disabled {
   opacity: 0.25;
 }
+
+.color-match-response {
+  margin: 10px auto;
+}
+
+.color-match-response .success {
+  color: #45B39D;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.color-match-response .error {
+  color: #EF8D84;
+  font-style: italic;
+  font-weight: bold;
+}

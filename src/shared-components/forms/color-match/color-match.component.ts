@@ -10,9 +10,12 @@ import {Observable, throwError} from 'rxjs';
 })
 
 export class ColorMatchFormComponent implements OnInit {
-  public defaultErrorMessage = 'There was a problem saving your request. Please contact support if this issue persists.';
   private googleFormsURL = 'https://script.google.com/macros/s/AKfycbyfKaDXjwfPUh8SQXpIKfdthalCp9uQbfIIqpnSW0auPG3TLA/exec';
+
+  public defaultErrorMessage = 'There was a problem saving your request. Please contact support if this issue persists.';
   public colorMatchForm: FormGroup;
+  public formSubmitSuccess = false;
+  public formSubmitError = false;
 
   constructor(private httpClient: HttpClient, private formBuilder: FormBuilder) {}
 
@@ -26,7 +29,6 @@ export class ColorMatchFormComponent implements OnInit {
   }
 
   public submitForm(): void {
-    console.log('SUBMIT FORM');
     let headers: HttpHeaders = new HttpHeaders();
     headers = headers.append('Accept',  'application/json');
 
@@ -43,11 +45,21 @@ export class ColorMatchFormComponent implements OnInit {
     };
 
     this.httpClient.get<void>(this.googleFormsURL, options)
-      .toPromise()
-      .then(response => {
-        console.log(response);
-      })
-      .catch(this.handleError);
+      .subscribe((res: any) => {
+          if (res.result === 'success') {
+            this.colorMatchForm.reset();
+            this.formSubmitSuccess = true;
+          } else {
+            this.formSubmitError = true;
+            console.log(res);
+          }
+        },
+        (error) => {
+          this.formSubmitError = true;
+          console.log(error);
+          this.handleError(error);
+        }
+      );
   }
 
   /**
