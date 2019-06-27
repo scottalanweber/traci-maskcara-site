@@ -26,6 +26,7 @@ export class ColorMatchFormComponent implements OnInit {
   }
 
   public submitForm(): void {
+    console.log('SUBMIT FORM');
     let headers: HttpHeaders = new HttpHeaders();
     headers = headers.append('Accept',  'application/json');
 
@@ -41,7 +42,6 @@ export class ColorMatchFormComponent implements OnInit {
       params: object
     };
 
-    console.log('SUBMIT FORM');
     this.httpClient.get<void>(this.googleFormsURL, options)
       .toPromise()
       .then(response => {
