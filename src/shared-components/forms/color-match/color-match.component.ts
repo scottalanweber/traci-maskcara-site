@@ -41,6 +41,7 @@ export class ColorMatchFormComponent implements OnInit {
       params: object
     };
 
+    console.log('SUBMIT FORM');
     this.httpClient.get<void>(this.googleFormsURL, options)
       .toPromise()
       .then(response => {
