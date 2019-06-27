@@ -3,7 +3,15 @@
   <div class="header-brand">
     <a href="/">beautifuleigh.you</a>
   </div>
-  <div class="header-nav">
+  <div class="header-nav fa fa-bars fa-lg pointer" [class.hidden]="!smallScreen" (click)="toggleCollapsedNav()" [@flyInOut]></div>
+  <div class="collapsed-nav" *ngIf="showMenu" [@flyInOut]>
+    <ul>
+      <li><a href="/">home</a></li> |
+      <li><a href="#color-match">color match</a></li> |
+      <li><app-buy-button></app-buy-button></li>
+    </ul>
+  </div>
+  <div class="header-nav" [class.hidden]="smallScreen" [@flyInOut]>
     <ul>
       <li><a href="/">home</a></li>
       <li><a href="#color-match">color match</a></li>

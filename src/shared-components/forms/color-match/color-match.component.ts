@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {catchError} from 'rxjs/operators';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Observable, throwError} from 'rxjs';
 
@@ -20,10 +19,9 @@ export class ColorMatchFormComponent implements OnInit {
   ngOnInit() {
     this.colorMatchForm = this.formBuilder.group({
       Name: new FormControl('', Validators.required),
-      Email: new FormControl('', Validators.compose([Validators.required, Validators.email])),
-      Phone: new FormControl('', Validators.compose([
-        Validators.required,
-        Validators.pattern('^\\(?([2-9][0-8][0-9])\\)?[-.●]?([2-9][0-9]{2})[-.●]?([0-9]{4})$')]))
+      Email: new FormControl('', [Validators.required, Validators.email]),
+      Phone: new FormControl('', [Validators.required,
+        Validators.pattern('^\\(?([2-9][0-8][0-9])\\)?[-.*]?([2-9][0-9]{2})[-.*]?([0-9]{4})$')])
     });
   }
 
@@ -38,13 +36,17 @@ export class ColorMatchFormComponent implements OnInit {
     };
 
     const options: {} = {
-      withCredentials: true,
       responseType: 'json',
       headers: headers,
-      observe: object
+      params: object
     };
 
-    this.httpClient.get<void>(this.googleFormsURL, options).pipe(catchError(this.handleError));
+    this.httpClient.get<void>(this.googleFormsURL, options)
+      .toPromise()
+      .then(response => {
+        console.log(response);
+      })
+      .catch(this.handleError);
   }
 
   /**
