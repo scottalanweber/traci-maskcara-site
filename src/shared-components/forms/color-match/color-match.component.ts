@@ -31,6 +31,7 @@ export class ColorMatchFormComponent implements OnInit {
   public submitForm(): void {
     let headers: HttpHeaders = new HttpHeaders();
     headers = headers.append('Accept',  'application/json');
+    headers = headers.append('Access-Control-Allow-Origin', 'https://script.google.com');
 
     const object: any = {
       'Name': this.colorMatchForm.get('Name').value,
