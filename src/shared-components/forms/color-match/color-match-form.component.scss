@@ -20,30 +20,35 @@ form {
   font-family: 'Cinzel', serif;
 }
 
-.color-match-field input[type="file"] {
-  font-size: 14px;
-  line-height: 0;
+@media only screen and (max-width: 900px) {
+  .color-match-field input {
+    width: 70%;
+  }
 }
 
-.color-match-field input[type="submit"] {
+.color-match-field button {
   height: 56px;
-  width: 150px;
   background: #45B39D;
   border-radius: 15px;
   font-size: 30px;
   font-family: 'Cinzel', serif;
-  padding: 0;
+  padding: 0 10px;
   position: relative;
   color: white;
   cursor: pointer;
 }
 
-.color-match-field input[type="submit"]:hover {
+.color-match-field button:hover {
   background: #EF8D84;
 }
 
-.color-match-field input[type="submit"]:disabled {
+.color-match-field button:disabled {
   opacity: 0.25;
+}
+
+.color-match-field button i {
+  font-size: 80%;
+  margin-left: 10px;
 }
 
 .color-match-response {

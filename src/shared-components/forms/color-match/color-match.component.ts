@@ -16,6 +16,7 @@ export class ColorMatchFormComponent implements OnInit {
   public colorMatchForm: FormGroup;
   public formSubmitSuccess = false;
   public formSubmitError = false;
+  public requestingColorMatch = false;
 
   constructor(private httpClient: HttpClient, private formBuilder: FormBuilder) {}
 
@@ -29,6 +30,7 @@ export class ColorMatchFormComponent implements OnInit {
   }
 
   public submitForm(): void {
+    this.requestingColorMatch = true;
     let headers: HttpHeaders = new HttpHeaders();
     headers = headers.append('Accept',  'application/json');
 
@@ -49,14 +51,15 @@ export class ColorMatchFormComponent implements OnInit {
           if (res.result === 'success') {
             this.colorMatchForm.reset();
             this.formSubmitSuccess = true;
+            this.requestingColorMatch = false;
           } else {
             this.formSubmitError = true;
-            console.log(res);
+            this.requestingColorMatch = false;
           }
         },
         (error) => {
+          this.requestingColorMatch = false;
           this.formSubmitError = true;
-          console.log(error);
           this.handleError(error);
         }
       );

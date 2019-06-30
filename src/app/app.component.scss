@@ -1,22 +1,21 @@
 .banner-container {
   height: 440px;
-  background-image: url("../assets/images/banner.jpg");
+  background-image: linear-gradient(#F5B7B1BF, #000000BF), url("../assets/images/banner.jpg");
+  background-position: center;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
+  position: relative;
 }
 
 .banner-container .banner-text {
-  float: right;
-  width: 44%;
-}
-
-.banner-container .banner-text .beautifuleigh-you-motto {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
   font-size: 40px;
   line-height: 40px;
-  width: 100%;
-  float: right;
-  margin: 10px 10px 0 0;
-  text-align: center;
 }
 
 .banner-container .banner-text .maskcara-motto {
@@ -29,11 +28,13 @@
 
 .before-after-container {
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-evenly;
 }
 
 .before-after-container img {
-  width: 25%;
+  width: 50%;
   height: 25%;
 }
 
@@ -45,6 +46,17 @@
   text-align: center;
   margin: auto;
   flex-flow: row wrap;
+}
+
+@media only screen and (max-width: 600px) {
+  .before-after-container img {
+    width: 100%;
+  }
+
+  .before-after-container .before-after-text {
+    width: 100%;
+    padding: 15px;
+  }
 }
 
 .before-after-container .before-after-text p {
@@ -70,7 +82,7 @@
 
 .buy-now-container {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 60px;
 }
 
 .buy-now-container .buy-now-title {

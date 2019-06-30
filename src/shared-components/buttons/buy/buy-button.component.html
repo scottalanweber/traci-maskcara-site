@@ -1,1 +1,34 @@
-<button class="buy-now-button"><a href="https://traciweber.maskcarabeauty.com/en/shop/party-40026/23" target="_blank">Buy Now</a></button>
+<button class="buy-now-button">
+  <a href="https://traciweber.maskcarabeauty.com/en/shop/party-{{partyIds['default']}}/23" target="_blank">Buy Now</a>
+</button>
+<a class="buy-now-party" (click)="open(partyInfo)">Have Party ID?</a>
+
+<ng-template #partyInfo
+             id="party-info-modal"
+             class="modal fade"
+             tabindex="-1"
+             role="dialog"
+             aria-hidden="true">
+  <div class="modal-header">
+    <h4 class="modal-title float-left">Know Your Party ID?</h4>
+    <button type="button" class="close float-right" aria-label="Close" (click)="close()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="card-row">
+      <p class="new-party-id">
+        <label for="partyId">Party ID: </label>
+        <input id="partyId" class="party-id-input" type="text" [(ngModel)]="currentPartyId" (ngModelChange)="updatePartyId($event)" />
+      </p>
+      <p *ngIf="hostess">This party ID is for {{hostess}}. Are you sure?</p>
+      <p *ngIf="this.currentPartyId !== this.partyIds['default'] && hostess === null">This is an unknown party id. You will be placed in the default party. If you believe this to be in error, please contact Traci Weber.</p>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light" data-dismiss="modal" (click)="close()">Cancel</button>
+    <button class="buy-now-button">
+      <a href="https://traciweber.maskcarabeauty.com/en/shop/party-{{partyId}}/23" target="_blank">Buy Now</a>
+    </button>
+  </div>
+</ng-template>

@@ -1,8 +1,19 @@
 <form [formGroup]="colorMatchForm" (ngSubmit)="submitForm()">
-  <div class="color-match-field"><label for="Name">Name:</label><input id="Name" name="Name" type="text" formControlName="Name" /></div>
-  <div class="color-match-field"><label for="Email">Email:</label><input id="Email" name="Email" type="email" formControlName="Email" /></div>
-  <div class="color-match-field"><label for="Phone">Phone:</label><input id="Phone" name="Phone" type="phone" formControlName="Phone" /></div>
-  <div class="color-match-field"><input type="submit" [disabled]="colorMatchForm.invalid" /></div>
+  <div class="color-match-field">
+    <label for="Name">Name:</label>
+    <input id="Name" name="Name" type="text" formControlName="Name" />
+  </div>
+  <div class="color-match-field">
+    <label for="Email">Email:</label>
+    <input id="Email" name="Email" type="email" formControlName="Email" />
+  </div>
+  <div class="color-match-field">
+    <label for="Phone">Phone:</label>
+    <input id="Phone" name="Phone" type="phone" formControlName="Phone" />
+  </div>
+  <div class="color-match-field">
+    <button type="submit" [disabled]="colorMatchForm.invalid">Submit <i *ngIf="requestingColorMatch" class="fa fa-spinner fa-spin"></i></button>
+  </div>
   <div class="color-match-response">
     <p *ngIf="formSubmitSuccess" class="success">Thank you for your request. I will contact you promptly.</p>
     <p *ngIf="formSubmitError" class="error">Something went wrong. Please try again later.</p>

@@ -1,5 +1,4 @@
 .footer-container {
-  height: 50px;
   background: black;
 }
 
@@ -13,6 +12,12 @@
   text-decoration: none;
   color: white;
   margin: 0 15px;
+}
+
+@media only screen and (max-width: 500px) {
+  .footer-container .footer-social a {
+    display: block;
+  }
 }
 
 .footer-container .footer-social a:hover span,

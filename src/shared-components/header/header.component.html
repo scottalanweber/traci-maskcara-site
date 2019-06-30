@@ -1,21 +1,18 @@
 <header class="header-container clear">
-  <a href="/"><img class="header-logo" src="assets/images/maskcara-hac-logo.png" /></a>
+  <a href="/"><img class="header-logo" alt="Maskcara Hac Logo" src="assets/images/maskcara-hac-logo.png" /></a>
   <div class="header-brand">
     <a href="/">beautifuleigh.you</a>
   </div>
-  <div class="header-nav fa fa-bars fa-lg pointer" [class.hidden]="!smallScreen" (click)="toggleCollapsedNav()" [@flyInOut]></div>
-  <div class="collapsed-nav" *ngIf="showMenu" [@flyInOut]>
-    <ul>
-      <li><a href="/">home</a></li> |
-      <li><a href="#color-match">color match</a></li> |
-      <li><app-buy-button></app-buy-button></li>
-    </ul>
+  <div class="header-nav fa fa-bars fa-lg" (click)="toggleCollapsedNav()"></div>
+  <div #collapsedNav class="collapsed-nav">
+    <a href="javascript:void(0)" class="closebtn" (click)="toggleCollapsedNav()">&times;</a>
+    <a href="/">home</a>
+    <a href="#color-match" (click)="toggleCollapsedNav()">color match</a>
+    <app-buy-button></app-buy-button>
   </div>
-  <div class="header-nav" [class.hidden]="smallScreen" [@flyInOut]>
-    <ul>
-      <li><a href="/">home</a></li>
-      <li><a href="#color-match">color match</a></li>
-      <li><app-buy-button></app-buy-button></li>
-    </ul>
+  <div class="header-nav">
+    <a href="/">home</a>
+    <a href="#color-match">color match</a>
+    <app-buy-button></app-buy-button>
   </div>
 </header>

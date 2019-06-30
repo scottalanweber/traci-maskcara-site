@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
-body {
+body, html {
+  height: 100%;
   max-width: 1240px;
   margin: 0 auto;
   font-family: 'Cinzel', serif;
@@ -18,6 +19,11 @@ a {
   color: black;
 }
 
+a:hover {
+  text-decoration: none;
+  color: black;
+}
+
 .clear {
   clear: both;
 }
@@ -25,7 +31,3 @@ a {
 .hidden {
   display: none;
 }
-
-.pointer {
-   cursor: pointer;
- }
