@@ -1,5 +1,5 @@
 <button class="buy-now-button">
-  <a href="https://traciweber.maskcarabeauty.com/en/shop/party-{{partyIds['default']}}/23" target="_blank">Buy Now</a>
+  <a href="https://traciweber.maskcarabeauty.com/en/shop/party-{{partyData['default']}}/23" target="_blank">Buy Now</a>
 </button>
 <a class="buy-now-party" (click)="open(partyInfo)">Have Party ID?</a>
 
@@ -21,8 +21,17 @@
         <label for="partyId">Party ID: </label>
         <input id="partyId" class="party-id-input" type="text" [(ngModel)]="currentPartyId" (ngModelChange)="updatePartyId($event)" />
       </p>
-      <p *ngIf="hostess">This party ID is for {{hostess}}. Are you sure?</p>
-      <p *ngIf="this.currentPartyId !== this.partyIds['default'] && hostess === null">This is an unknown party id. You will be placed in the default party. If you believe this to be in error, please contact Traci Weber.</p>
+      <p *ngIf="this.partyId !== this.partyData['default'] && partyStatus === 'open'">You've entered a party currently hosted by {{hostess}}.</p>
+      <p *ngIf="partyStatus === 'closed'" class="error">
+        This party was hosted by {{hostess}}.<br/>
+        However the party is now closed.<br/>
+        You will be placed in the default party.
+      </p>
+      <p *ngIf="this.currentPartyId !== this.partyData['default'] && hostess === null" class="error">
+        This is an unknown party.<br/>
+        You will be placed in the default party.<br/>
+        If you believe this to be in error, please double check the party id or contact Traci Weber.
+      </p>
     </div>
   </div>
   <div class="modal-footer">
