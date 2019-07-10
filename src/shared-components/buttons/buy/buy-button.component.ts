@@ -33,7 +33,8 @@ export class BuyButtonComponent {
     '10505': {id: '10505', hostess: 'Connie Weber', status: 'closed'},
     '5190': {id: '5190', hostess: 'Corinne Thomas', status: 'closed'},
     '2262': {id: '2262', hostess: 'Traci Weber', status: 'closed'},
-    '2261': {id: '2261', hostess: 'Traci Weber', status: 'closed'}
+    '2261': {id: '2261', hostess: 'Traci Weber', status: 'closed'},
+    '43385': {id: '43385', hostess: 'Amanda Nilsson', status: 'open'}
   };
 
   constructor(private modalService: NgbModal) {}
