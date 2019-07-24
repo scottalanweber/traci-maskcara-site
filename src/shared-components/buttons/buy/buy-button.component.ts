@@ -13,7 +13,7 @@ export class BuyButtonComponent {
   public hostess: string;
   public partyStatus: string;
   public partyData: any = {
-    'default': '40026',
+    'default': '44663',
     '41651': {id: '41651', hostess: 'Kaitlyn Lofthouse', status: 'open'},
     '21479': {id: '21479', hostess: 'Cindy Hansen', status: 'open'},
     '16132': {id: '16132', hostess: 'Karina Arshad', status: 'open'},
@@ -21,9 +21,9 @@ export class BuyButtonComponent {
     '14841': {id: '14841', hostess: 'Tess Black', status: 'open'},
     '14175': {id: '14175', hostess: 'Clarissa Black', status: 'open'},
     '6422': {id: '6422', hostess: 'Shannon Moss', status: 'open'},
-    '21265': {id: '21265', hostess: '12 Days of Maskcara', status: 'open'},
-    '35821': {id: '35821', hostess: 'A Beautifuleigh YOU Party', status: 'open'},
-    '40026': {id: '40026', hostess: 'June’s Mystery Hostess', status: 'open'},
+    '21265': {id: '21265', hostess: '12 Days of Maskcara', status: 'closed'},
+    '35821': {id: '35821', hostess: 'A Beautifuleigh YOU Party', status: 'closed'},
+    '40026': {id: '40026', hostess: 'June’s Mystery Hostess', status: 'closed'},
     '22012': {id: '22012', hostess: 'Traci Carnette', status: 'closed'},
     '18906': {id: '18906', hostess: 'Stephanie Dunham', status: 'closed'},
     '17876': {id: '17876', hostess: 'Traci Weber', status: 'closed'},
@@ -35,7 +35,9 @@ export class BuyButtonComponent {
     '2262': {id: '2262', hostess: 'Traci Weber', status: 'closed'},
     '2261': {id: '2261', hostess: 'Traci Weber', status: 'closed'},
     '43385': {id: '43385', hostess: 'Amanda Nilsson', status: 'open'},
-    '43574': {id: '43574', hostess: 'Heather Stevens', status: 'open'}
+    '43574': {id: '43574', hostess: 'Heather Stevens', status: 'open'},
+    '44662': {id: '44662', hostess: 'Sarah Moffat', status: 'open'},
+    '44663': {id: '44663', hostess: 'Traci Weber', status: 'open'}
   };
 
   constructor(private modalService: NgbModal) {}
