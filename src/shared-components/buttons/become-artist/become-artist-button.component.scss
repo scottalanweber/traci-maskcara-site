@@ -1,0 +1,26 @@
+.become-artist-button {
+  height: 40px;
+  width: 175px;
+  line-height: 20px;
+  background: #45B39D;
+  border-radius: 15px;
+  font-size: 16px;
+  font-family: 'Cinzel', serif;
+  padding: 0;
+  position: relative;
+}
+
+.become-artist-button a:hover {
+  background: #EF8D84;
+}
+
+.become-artist-button a {
+  text-decoration: none;
+  color: white;
+  width: 100%;
+  margin: 0;
+  padding: 10px 0;
+  display: block;
+  text-align: center;
+  border-radius: 15px;
+}

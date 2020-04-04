@@ -26,6 +26,28 @@
   margin: 400px 30px 0;
 }
 
+.banner-container .banner-actions {
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 555px;
+}
+
+@media only screen and (max-width: 1000px) {
+}
+
+@media only screen and (max-width: 600px) {
+  .banner-container .banner-text {
+    top: 30%;
+    width: 300px;
+  }
+
+  .banner-container .banner-actions {
+    width: 175px;
+  }
+}
+
 .before-after-container {
   display: flex;
   flex-direction: row;

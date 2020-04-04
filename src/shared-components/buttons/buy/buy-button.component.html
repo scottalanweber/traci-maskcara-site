@@ -1,7 +1,7 @@
 <button class="buy-now-button">
-  <a href="https://traciweber.maskcarabeauty.com/en/shop/party-{{partyData['default']}}/23" target="_blank">Buy Now</a>
+  <a href="https://traciweber.maskcarabeauty.com/en/shop/party-{{partyData['default']}}/23" target="_blank">Buy Maskcara</a>
 </button>
-<a class="buy-now-party" (click)="open(partyInfo)">Have Party ID?</a>
+<a *ngIf="showPartyLink" class="buy-now-party" (click)="open(partyInfo)">Have Party ID?</a>
 
 <ng-template #partyInfo
              id="party-info-modal"

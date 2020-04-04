@@ -6,13 +6,9 @@
   <div class="header-nav fa fa-bars fa-lg" (click)="toggleCollapsedNav()"></div>
   <div #collapsedNav class="collapsed-nav">
     <a href="javascript:void(0)" class="closebtn" (click)="toggleCollapsedNav()">&times;</a>
-    <a href="https://beautifuleighyou.com">home</a>
-    <a href="#color-match" (click)="toggleCollapsedNav()">color match</a>
-    <app-buy-button></app-buy-button>
+    <app-buy-button [showPartyLink]="true"></app-buy-button>
   </div>
   <div class="header-nav">
-    <a href="https://beautifuleighyou.com">home</a>
-    <a href="#color-match">color match</a>
-    <app-buy-button></app-buy-button>
+    <app-buy-button [showPartyLink]="true"></app-buy-button>
   </div>
 </header>

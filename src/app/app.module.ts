@@ -11,13 +11,17 @@ import {BuyButtonComponent} from '../shared-components/buttons/buy/buy-button.co
 import {ColorMatchFormComponent} from '../shared-components/forms/color-match/color-match.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {ColorMatchButtonComponent} from '../shared-components/buttons/color-match/color-match-button.component';
+import {BecomeArtistButtonComponent} from '../shared-components/buttons/become-artist/become-artist-button.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
+    BecomeArtistButtonComponent,
     BuyButtonComponent,
+    ColorMatchButtonComponent,
     ColorMatchFormComponent
   ],
   imports: [

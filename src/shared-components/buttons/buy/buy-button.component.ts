@@ -1,4 +1,4 @@
-import {Component, TemplateRef} from '@angular/core';
+import {Component, Input, TemplateRef} from '@angular/core';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -8,6 +8,8 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 })
 
 export class BuyButtonComponent {
+  @Input() showPartyLink: boolean;
+
   public partyId: string;
   public currentPartyId: string;
   public hostess: string;
@@ -43,7 +45,8 @@ export class BuyButtonComponent {
     '58666': {id: '58666', hostess: 'Kayla Thueson', status: 'open'},
     '59101': {id: '59101', hostess: 'Jessica', status: 'open'},
     '59491': {id: '59491', hostess: 'Heather', status: 'open'},
-    '60612': {id: '60612', hostess: 'Beautifuleigh YOU', status: 'open'}
+    '60612': {id: '60612', hostess: 'Beautifuleigh YOU', status: 'open'},
+    '61916': {id: '61916', hostess: 'Melissa Tolley', status: 'open'}
   };
 
   constructor(private modalService: NgbModal) {}

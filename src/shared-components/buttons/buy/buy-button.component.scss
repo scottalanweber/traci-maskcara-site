@@ -1,13 +1,14 @@
 .buy-now-button {
-  height: 46px;
-  width: 125px;
-  line-height: 25px;
+  height: 40px;
+  width: 175px;
+  line-height: 20px;
   background: #45B39D;
   border-radius: 15px;
   font-size: 16px;
   font-family: 'Cinzel', serif;
   padding: 0;
   position: relative;
+  margin-right: 15px;
 }
 
 .buy-now-button a:hover {
@@ -25,10 +26,16 @@
   border-radius: 15px;
 }
 
+@media only screen and (max-width: 600px) {
+  .buy-now-button {
+    margin: 0 0 15px 0;
+  }
+}
+
 .buy-now-party {
   display: inline;
   font-size: 14px;
-  margin: 10px;
+  margin: 10px 10px 10px 0;
   cursor: pointer;
 }
 

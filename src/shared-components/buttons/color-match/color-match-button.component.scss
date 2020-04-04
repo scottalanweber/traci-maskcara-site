@@ -1,0 +1,33 @@
+.color-match-button {
+  height: 40px;
+  width: 175px;
+  line-height: 20px;
+  background: #45B39D;
+  border-radius: 15px;
+  font-size: 16px;
+  font-family: 'Cinzel', serif;
+  padding: 0;
+  position: relative;
+  margin-right: 15px;
+}
+
+.color-match-button a:hover {
+  background: #EF8D84;
+}
+
+.color-match-button a {
+  text-decoration: none;
+  color: white;
+  width: 100%;
+  margin: 0;
+  padding: 10px 0;
+  display: block;
+  text-align: center;
+  border-radius: 15px;
+}
+
+@media only screen and (max-width: 600px) {
+  .color-match-button {
+    margin: 0 0 15px 0;
+  }
+}

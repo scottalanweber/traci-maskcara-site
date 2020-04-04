@@ -5,6 +5,11 @@
     <div class="banner-text">
       <p class="beautifuleigh-you-motto">Beauty begins the moment you decide to be you</p>
     </div>
+    <div class="banner-actions">
+      <app-color-match-button></app-color-match-button>
+      <app-buy-button [showPartyLink]="false"></app-buy-button>
+      <app-become-artist-button></app-become-artist-button>
+    </div>
   </div>
   <hr class="clear" />
   <div class="before-after-container clear">
@@ -22,7 +27,7 @@
   <hr class="clear" />
   <div id="buy-now" class="buy-now-container clear">
     <div class="buy-now-title">Already been color matched?</div>
-    <app-buy-button></app-buy-button>
+    <app-buy-button [showPartyLink]="true"></app-buy-button>
   </div>
   <app-footer></app-footer>
 </div>
