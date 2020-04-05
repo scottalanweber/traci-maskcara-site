@@ -1,0 +1,133 @@
+form {
+  margin-bottom: 15px;
+}
+
+.form-heading {
+  font-size: 1.25rem;
+  color: #C0C0C0;
+}
+
+.fields-container {
+  margin-bottom: 30px;
+}
+
+.multi-step-form-field {
+  margin-top: 15px;
+}
+
+.multi-step-form-field label {
+  width: 100%;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  line-height: 1.5rem;
+}
+
+.multi-step-form-field input {
+  width: 40%;
+  font-size: 20px;
+  line-height: 20px;
+  font-family: 'Cinzel', serif;
+  border: solid 1px #45B39D;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border-radius: 20px;
+  outline: none;
+  padding: 10px;
+}
+
+.multi-step-form-field input[type="radio"] {
+  width: auto;
+  font-size: 20px;
+  line-height: 20px;
+  font-family: 'Cinzel', serif;
+}
+
+.multi-step-form-field span {
+  margin-left: 5px;
+  margin-right: 15px;
+}
+
+.multi-step-form-field textarea {
+  height: 100px;
+  width: 500px;
+  resize: none;
+  overflow: auto;
+  border: solid 1px #45B39D;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border-radius: 20px;
+  outline: none;
+  padding: 10px;
+  font-family: 'Cinzel', serif;
+  transition: border 0.5s;
+  -webkit-transition: border 0.5s;
+  -moz-transition: border 0.5s;
+  -o-transition: border 0.5s;
+}
+
+.multi-step-form-field input[type="file"], /* FF, IE7+, chrome (except button) */
+.multi-step-form-field input[type="file"]::-webkit-file-upload-button { /* chromes and blink button */
+  border: none;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 900px) {
+  .multi-step-form-field input {
+    width: 70%;
+  }
+
+  .multi-step-form-field textarea {
+    width: 70%;
+  }
+}
+
+button {
+  height: 40px;
+  width: 175px;
+  line-height: 20px;
+  background: #45B39D;
+  border-radius: 15px;
+  font-size: 16px;
+  font-family: 'Cinzel', serif;
+  padding: 0;
+  position: relative;
+  margin-right: 15px;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #EF8D84;
+}
+
+button:disabled {
+  opacity: 0.25;
+  cursor: not-allowed;
+}
+
+button i {
+  font-size: 80%;
+  margin-left: 10px;
+}
+
+.multi-step-form-response {
+  margin: 10px auto;
+}
+
+.multi-step-form-response p {
+  margin: 1rem 0 0 0;
+}
+
+.multi-step-form-response .success {
+  color: #45B39D;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.validation-error {
+  color: #EF8D84;
+  font-style: italic;
+  font-weight: bold;
+}
