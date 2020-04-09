@@ -1,0 +1,114 @@
+.banner-container {
+  height: 440px;
+  background-image: linear-gradient(rgba(#F5B7B1, 0.75), rgba(#000000, 0.75)), url("../../assets/images/banner.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.banner-container .banner-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  font-size: 40px;
+  line-height: 40px;
+}
+
+.banner-container .banner-text .maskcara-motto {
+  font-size: 28px;
+  line-height: 28px;
+  float: right;
+  width: 50%;
+  margin: 400px 30px 0;
+}
+
+.banner-container .banner-actions {
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 555px;
+}
+
+@media only screen and (max-width: 1000px) {
+}
+
+@media only screen and (max-width: 600px) {
+  .banner-container .banner-text {
+    top: 30%;
+    width: 300px;
+  }
+
+  .banner-container .banner-actions {
+    width: 175px;
+  }
+}
+
+.before-after-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.before-after-container img {
+  width: 50%;
+  height: 25%;
+}
+
+.before-after-container .before-after-text {
+  display: flex;
+  width: 47%;
+  font-size: 23px;
+  line-height: 28px;
+  text-align: center;
+  margin: auto;
+  flex-flow: row wrap;
+}
+
+@media only screen and (max-width: 600px) {
+  .before-after-container img {
+    width: 100%;
+  }
+
+  .before-after-container .before-after-text {
+    width: 100%;
+    padding: 15px;
+  }
+}
+
+.before-after-container .before-after-text p {
+  margin: auto;
+  text-align: center;
+  min-width: 100%;
+}
+
+.color-match-container {
+  margin: 50px auto;
+  text-align: center;
+}
+
+.color-match-container span {
+  font-size: 12px;
+  font-style: italic;
+}
+
+.color-match-container .color-match-title {
+  font-size: 28px;
+  line-height: 28px;
+}
+
+.buy-now-container {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.buy-now-container .buy-now-title {
+  font-size: 24px;
+  line-height: 24px;
+  margin: 30px 0;
+}

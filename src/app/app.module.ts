@@ -14,17 +14,23 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {ColorMatchButtonComponent} from '../shared-components/buttons/color-match/color-match-button.component';
 import {BecomeArtistButtonComponent} from '../shared-components/buttons/become-artist/become-artist-button.component';
 import {MultiStepFormComponent} from '../shared-components/forms/multi-step-form/multi-step-form.component';
+import {ServicesComponent} from '../pages/services/services.component';
+import {HomeComponent} from '../pages/home/home.component';
+import {AboutComponent} from '../pages/about/about.component';
 
 @NgModule({
   declarations: [
+    AboutComponent,
     AppComponent,
-    HeaderComponent,
-    FooterComponent,
     BecomeArtistButtonComponent,
     BuyButtonComponent,
     ColorMatchButtonComponent,
     ColorMatchFormComponent,
-    MultiStepFormComponent
+    FooterComponent,
+    HeaderComponent,
+    HomeComponent,
+    MultiStepFormComponent,
+    ServicesComponent
   ],
   imports: [
     BrowserAnimationsModule,

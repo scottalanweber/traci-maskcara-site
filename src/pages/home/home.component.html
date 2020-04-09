@@ -1,0 +1,30 @@
+<div class="home-page">
+  <div class="banner-container clear">
+    <div class="banner-text">
+      <p class="beautifuleigh-you-motto">Beauty begins the moment you decide to be you</p>
+    </div>
+    <div class="banner-actions">
+      <app-color-match-button></app-color-match-button>
+      <app-buy-button [showPartyLink]="false"></app-buy-button>
+      <app-become-artist-button></app-become-artist-button>
+    </div>
+  </div>
+  <hr class="clear" />
+  <div class="before-after-container clear">
+    <div class="before-after-text">
+      <p>Everything we do and everything we create is based on what we believe in. That helping others look beautiful is nice, but helping them believe they are beautiful is life changing. Happiness is contagious.</p>
+      <p>And with enough courage, creativity, and optimism, you actually can have your cake and eat it too.</p>
+    </div>
+    <img alt="Before/After Photo" src="assets/images/Before-After-1.jpg" />
+  </div>
+  <hr class="clear" />
+  <div id="color-match" class="color-match-container clear">
+    <div class="color-match-title">Request to be Color Matched today!</div>
+    <app-color-match-form></app-color-match-form>
+  </div>
+  <hr class="clear" />
+  <div id="buy-now" class="buy-now-container clear">
+    <div class="buy-now-title">Already been color matched?</div>
+    <app-buy-button [showPartyLink]="true"></app-buy-button>
+  </div>
+</div>
