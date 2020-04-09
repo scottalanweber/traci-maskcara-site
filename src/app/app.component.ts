@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -9,5 +10,11 @@ import {Component} from '@angular/core';
 export class AppComponent {
   public title = 'traci-maskcara-site';
 
-  constructor() {}
+  constructor(private router: Router) {
+    const path = localStorage.getItem('path');
+    if (path) {
+      localStorage.removeItem('path');
+      this.router.navigate([path]);
+    }
+  }
 }
