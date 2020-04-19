@@ -9,7 +9,7 @@ import {Component, ElementRef, ViewChild} from '@angular/core';
 export class HeaderComponent {
   constructor() {}
 
-  @ViewChild('collapsedNav')
+  @ViewChild('collapsedNav', { static: true })
   public collapsedNav: ElementRef;
 
   public showMenu: boolean;
