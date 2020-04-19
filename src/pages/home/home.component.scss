@@ -127,6 +127,7 @@
 
 .before-after-container .carousel-inner {
   border-radius: 15px;
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
 }
 
 .before-after-container .carousel-item {
