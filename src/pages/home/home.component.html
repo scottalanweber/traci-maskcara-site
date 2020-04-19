@@ -15,7 +15,13 @@
       <p>Everything we do and everything we create is based on what we believe in. That helping others look beautiful is nice, but helping them believe they are beautiful is life changing. Happiness is contagious.</p>
       <p>And with enough courage, creativity, and optimism, you actually can have your cake and eat it too.</p>
     </div>
-    <img alt="Before/After Photo" src="assets/images/Before-After-1.jpg" />
+    <ngb-carousel>
+      <ng-template ngbSlide *ngFor="let image of beforeAfterImages">
+        <div>
+          <img src="{{image.url}}" alt="{{image.alt}}">
+        </div>
+      </ng-template>
+    </ngb-carousel>
   </div>
   <hr class="clear" />
   <div id="color-match" class="color-match-container clear">

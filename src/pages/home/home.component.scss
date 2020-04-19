@@ -34,9 +34,6 @@
   width: 555px;
 }
 
-@media only screen and (max-width: 1000px) {
-}
-
 @media only screen and (max-width: 600px) {
   .banner-container .banner-text {
     top: 30%;
@@ -56,8 +53,8 @@
 }
 
 .before-after-container img {
-  width: 50%;
-  height: 25%;
+  width: 100%;
+  height: 50%;
 }
 
 .before-after-container .before-after-text {
@@ -71,10 +68,6 @@
 }
 
 @media only screen and (max-width: 600px) {
-  .before-after-container img {
-    width: 100%;
-  }
-
   .before-after-container .before-after-text {
     width: 100%;
     padding: 15px;
@@ -111,4 +104,57 @@
   font-size: 24px;
   line-height: 24px;
   margin: 30px 0;
+}
+
+.before-after-container ngb-carousel {
+  width: 50%;
+  height: 25%;
+  margin-right: 5px;
+}
+
+@media only screen and (max-width: 600px) {
+  .before-after-container ngb-carousel {
+    width: 95%;
+    margin-right: 0;
+  }
+}
+
+.before-after-container ngb-carousel img {
+  width: 100%;
+  height: 50%;
+  outline: none;
+}
+
+.before-after-container .carousel-inner {
+  border-radius: 15px;
+}
+
+.before-after-container .carousel-item {
+  display: block !important;
+  z-index: 1;
+  position: absolute;
+  transition: opacity 1.5s ease-in-out, visibility 1s;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.before-after-container .carousel-item.active{
+  position: relative;
+  transition: opacity 1.5s ease-in-out, visibility 1s;
+  visibility: visible;
+  opacity: 1;
+}
+
+.before-after-container .carousel-control-prev {
+  z-index: 20;
+  width: 5%;
+}
+
+.before-after-container .carousel-control-next {
+  z-index: 20;
+  width: 5%;
+}
+
+.before-after-container .carousel-indicators{
+  z-index: 20;
 }
