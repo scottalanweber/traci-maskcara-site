@@ -48,6 +48,7 @@ export class BuyButtonComponent {
     '60612': {id: '60612', hostess: 'Beautifuleigh YOU', status: 'open'},
     '61916': {id: '61916', hostess: 'Melissa Tolley', status: 'open'},
     '74200': {id: '74200', hostess: 'Lynette Baird', status: 'open'},
+    '76224': {id: '76224', hostess: 'Kelly Armstrong', status: 'open'},
     '76444': {id: '76444', hostess: 'Maggie Moore', status: 'open'}
   };
 
