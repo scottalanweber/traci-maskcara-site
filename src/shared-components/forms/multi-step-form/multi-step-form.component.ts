@@ -104,4 +104,8 @@ export class MultiStepFormComponent implements OnInit, OnChanges {
   trackByFn(index: number): number {
     return index;
   }
+
+  setRadioValue(formIndex: number, field: string, value: string) {
+    this.masterForm[formIndex].controls[field].setValue(value);
+  }
 }

@@ -18,11 +18,12 @@
               <ng-container *ngSwitchCase="'radio'">
                 <ng-container *ngFor="let value of currentFormContent[i][field].values; trackBy: trackByFn">
                   <input [type]="currentFormContent[i][field].type"
-                         [id]="field"
+                         [id]="value"
                          [formControlName]="field"
                          [name]="field"
-                         [value]="value"/>
-                  <span>{{value}}</span>
+                         [value]="value"
+                         (change)="setRadioValue(i, field, value)"/>
+                  <label [for]="value" class="value-label">{{value}}</label>
                 </ng-container>
               </ng-container>
 
