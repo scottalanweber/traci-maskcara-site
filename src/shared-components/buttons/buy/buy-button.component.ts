@@ -15,7 +15,7 @@ export class BuyButtonComponent {
   public hostess: string;
   public partyStatus: string;
   public partyData: any = {
-    'default': '60612',
+    'default': '86642',
     '41651': {id: '41651', hostess: 'Kaitlyn Lofthouse', status: 'open'},
     '21479': {id: '21479', hostess: 'Cindy Hansen', status: 'open'},
     '16132': {id: '16132', hostess: 'Karina Arshad', status: 'open'},
@@ -45,14 +45,15 @@ export class BuyButtonComponent {
     '58666': {id: '58666', hostess: 'Kayla Thueson', status: 'open'},
     '59101': {id: '59101', hostess: 'Jessica', status: 'open'},
     '59491': {id: '59491', hostess: 'Heather', status: 'open'},
-    '60612': {id: '60612', hostess: 'Beautifuleigh YOU', status: 'open'},
+    '60612': {id: '60612', hostess: 'Beautifuleigh YOU', status: 'closed'},
     '61916': {id: '61916', hostess: 'Melissa Tolley', status: 'open'},
     '74200': {id: '74200', hostess: 'Lynette Baird', status: 'closed'},
     '76224': {id: '76224', hostess: 'Kelly Armstrong', status: 'open'},
     '76444': {id: '76444', hostess: 'Maggie Moore', status: 'closed'},
     '80431': {id: '80431', hostess: 'Ashley Brown', status: 'open'},
     '83533': {id: '83533', hostess: 'Kelly Baird', status: 'open'},
-    '86074': {id: '86074', hostess: 'Cindy Dixon', status: 'open'}
+    '86074': {id: '86074', hostess: 'Cindy Dixon', status: 'open'},
+    '86642': {id: '86642', hostess: 'A Beautifuleigh YOU Party!', status: 'open'}
   };
 
   constructor(private modalService: NgbModal) {}
