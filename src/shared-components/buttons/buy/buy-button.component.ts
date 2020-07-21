@@ -59,7 +59,8 @@ export class BuyButtonComponent {
     '93857': {id: '93857', hostess: 'Mandi', status: 'open'},
     '99609': {id: '99609', hostess: 'Bridget Pruitt', status: 'open'},
     '99611': {id: '99611', hostess: 'JoAnn', status: 'open'},
-    '103781': {id: '103781', hostess: 'Mindy Walker', status: 'open'}
+    '103781': {id: '103781', hostess: 'Mindy Walker', status: 'open'},
+    '107659': {id: '107659', hostess: 'Jamie Bates', status: 'open'}
   };
 
   constructor(private modalService: NgbModal) {}
