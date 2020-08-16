@@ -1,7 +1,7 @@
 <button class="buy-now-button">
-  <a href="https://traciweber.maskcarabeauty.com/en/shop/party-{{partyData['default']}}/23" target="_blank">Buy Maskcara</a>
+  <a href="https://traciweber.maskcarabeauty.com/en/shop/party-{{getDefaultParty().id}}/23" target="_blank">Buy Maskcara</a>
 </button>
-<a *ngIf="showPartyLink" class="buy-now-party" (click)="open(partyInfo)">Have Party ID?</a>
+<a *ngIf="showPartyLink" class="buy-now-party" (click)="open(partyInfo)">Have a Hostess?</a>
 
 <ng-template #partyInfo
              id="party-info-modal"
@@ -10,27 +10,32 @@
              role="dialog"
              aria-hidden="true">
   <div class="modal-header">
-    <h4 class="modal-title float-left">Know Your Party ID?</h4>
+    <h4 class="modal-title float-left">Select your Party Hostess</h4>
     <button type="button" class="close float-right" aria-label="Close" tabindex="-1" (click)="close()">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
   <div class="modal-body">
     <div class="card-row">
+      <select id="hostess-selector" [(ngModel)]="currentPartyId" (ngModelChange)="updatePartyId($event)">
+        <option [ngValue]="null" disabled>Select your Party Hostess</option>
+        <option *ngFor="let party of getParties() | sortBy : 'hostess'" [value]="party.id">
+          {{party.hostess}}
+        </option>
+      </select>
+      <i class="fa fa-info-circle" ngbPopover="If you don't see your hostess, please contact Traci Weber"></i>
       <p class="new-party-id">
-        <label for="partyId">Party ID: </label>
+        <label for="partyId">Or enter your Party/Rewards # here: </label>
         <input id="partyId" class="party-id-input" type="text" [(ngModel)]="currentPartyId" (ngModelChange)="updatePartyId($event)" />
       </p>
-      <p *ngIf="this.partyId !== this.partyData['default'] && partyStatus === 'open'">You've entered a party currently hosted by {{hostess}}.</p>
-      <p *ngIf="partyStatus === 'closed'" class="error">
-        This party was hosted by {{hostess}}.<br/>
-        However the party is now closed.<br/>
-        You will be placed in the default party.
+      <p *ngIf="partyId !== getDefaultParty().id && partyStatus === 'open'">
+        {{getSelectionText()}}
       </p>
-      <p *ngIf="this.currentPartyId !== this.partyData['default'] && hostess === null" class="error">
-        This is an unknown party.<br/>
-        You will be placed in the default party.<br/>
-        If you believe this to be in error, please double check the party id or contact Traci Weber.
+      <p *ngIf="partyStatus === 'closed'" class="error">
+        {{getErrorText()}}
+      </p>
+      <p *ngIf="currentPartyId !== getDefaultParty().id && hostess === null" class="error">
+        {{getErrorText()}}
       </p>
     </div>
   </div>

@@ -17,6 +17,7 @@ import {MultiStepFormComponent} from '../shared-components/forms/multi-step-form
 import {ServicesComponent} from '../pages/services/services.component';
 import {HomeComponent} from '../pages/home/home.component';
 import {AboutComponent} from '../pages/about/about.component';
+import {SortPipe} from '../pipes/sort.pipe';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import {AboutComponent} from '../pages/about/about.component';
     HeaderComponent,
     HomeComponent,
     MultiStepFormComponent,
-    ServicesComponent
+    ServicesComponent,
+    SortPipe
   ],
   imports: [
     BrowserAnimationsModule,

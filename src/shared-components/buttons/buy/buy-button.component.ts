@@ -1,5 +1,7 @@
 import {Component, Input, TemplateRef} from '@angular/core';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {PartyData} from '../../../model/party-data';
+import {DEFAULT_PARTY_ID, PARTIES} from '../../../data/parties.data';
 
 @Component({
   selector: 'app-buy-button',
@@ -11,82 +13,69 @@ export class BuyButtonComponent {
   @Input() showPartyLink: boolean;
 
   public partyId: string;
-  public currentPartyId: string;
+  public currentPartyId: string = null;
   public hostess: string;
   public partyStatus: string;
-  public partyData: any = {
-    'default': '113903',
-    '41651': {id: '41651', hostess: 'Kaitlyn Lofthouse', status: 'open'},
-    '21479': {id: '21479', hostess: 'Cindy Hansen', status: 'open'},
-    '16132': {id: '16132', hostess: 'Karina Arshad', status: 'open'},
-    '22014': {id: '22014', hostess: 'Megan Watkins', status: 'open'},
-    '14841': {id: '14841', hostess: 'Tess Black', status: 'open'},
-    '14175': {id: '14175', hostess: 'Clarissa Black', status: 'open'},
-    '6422': {id: '6422', hostess: 'Shannon Moss', status: 'open'},
-    '21265': {id: '21265', hostess: '12 Days of Maskcara', status: 'closed'},
-    '35821': {id: '35821', hostess: 'A Beautifuleigh YOU Party', status: 'closed'},
-    '40026': {id: '40026', hostess: 'June’s Mystery Hostess', status: 'closed'},
-    '22012': {id: '22012', hostess: 'Traci Carnette', status: 'closed'},
-    '18906': {id: '18906', hostess: 'Stephanie Dunham', status: 'closed'},
-    '17876': {id: '17876', hostess: 'Traci Weber', status: 'closed'},
-    '14254': {id: '14254', hostess: 'Michelle Williams', status: 'closed'},
-    '13222': {id: '13222', hostess: 'Corinne Thomas', status: 'closed'},
-    '13013': {id: '13013', hostess: 'Traci Weber', status: 'closed'},
-    '10505': {id: '10505', hostess: 'Connie Weber', status: 'closed'},
-    '5190': {id: '5190', hostess: 'Corinne Thomas', status: 'closed'},
-    '2262': {id: '2262', hostess: 'Traci Weber', status: 'closed'},
-    '2261': {id: '2261', hostess: 'Traci Weber', status: 'closed'},
-    '43385': {id: '43385', hostess: 'Amanda Nilsson', status: 'open'},
-    '43574': {id: '43574', hostess: 'Heather Stevens', status: 'open'},
-    '44662': {id: '44662', hostess: 'Sarah Moffat', status: 'open'},
-    '44663': {id: '44663', hostess: 'Traci Weber', status: 'closed'},
-    '45823': {id: '45823', hostess: 'Katie Rogers', status: 'open'},
-    '52418': {id: '52418', hostess: 'Stephanie Dunham', status: 'open'},
-    '58666': {id: '58666', hostess: 'Kayla Thueson', status: 'open'},
-    '59101': {id: '59101', hostess: 'Jessica', status: 'open'},
-    '59491': {id: '59491', hostess: 'Heather', status: 'open'},
-    '60612': {id: '60612', hostess: 'Beautifuleigh YOU', status: 'closed'},
-    '61916': {id: '61916', hostess: 'Melissa Tolley', status: 'open'},
-    '74200': {id: '74200', hostess: 'Lynette Baird', status: 'closed'},
-    '76224': {id: '76224', hostess: 'Kelly Armstrong', status: 'open'},
-    '76444': {id: '76444', hostess: 'Maggie Moore', status: 'closed'},
-    '80431': {id: '80431', hostess: 'Ashley Brown', status: 'open'},
-    '83533': {id: '83533', hostess: 'Kelly Baird', status: 'closed'},
-    '86074': {id: '86074', hostess: 'Cindy Dixon', status: 'closed'},
-    '86642': {id: '86642', hostess: 'A Beautifuleigh YOU Party!', status: 'open'},
-    '86894': {id: '86894', hostess: 'Sealy Doss', status: 'closed'},
-    '92957': {id: '92957', hostess: 'Michelle Nelson', status: 'closed'},
-    '93857': {id: '93857', hostess: 'Mandi', status: 'open'},
-    '99609': {id: '99609', hostess: 'Bridget Pruitt', status: 'open'},
-    '99611': {id: '99611', hostess: 'JoAnn', status: 'open'},
-    '103781': {id: '103781', hostess: 'Mindy Walker', status: 'open'},
-    '107659': {id: '107659', hostess: 'Jamie Bates', status: 'open'},
-    '108951': {id: '108951', hostess: 'Susan Eckburg', status: 'open'},
-    '113903': {id: '113903', hostess: 'A Beautifuleigh YOU Party!', status: 'open'},
-    '113371': {id: '113371', hostess: 'Jennifer Burns', status: 'open'},
-    '115119': {id: '115119', hostess: 'Morgan Windham', status: 'open'},
-    '98915': {id: '98915', hostess: 'Susan LaGrone', status: 'open'},
-    '115828': {id: '115828', hostess: 'Carolyn Thomas', status: 'open'}
-  };
 
   constructor(private modalService: NgbModal) {}
 
   updatePartyId(currentPartyId: any) {
-    if (currentPartyId !== this.partyData['default']) {
+    if (currentPartyId !== DEFAULT_PARTY_ID) {
       this.currentPartyId = currentPartyId;
     }
 
     this.partyId = currentPartyId;
-    if (currentPartyId in this.partyData) {
-      this.hostess = this.partyData[currentPartyId].hostess;
-      this.partyStatus = this.partyData[currentPartyId].status;
+    if (this.getParty(currentPartyId)) {
+      this.hostess = this.getParty(currentPartyId).hostess;
+      this.partyStatus = this.getParty(currentPartyId).status;
       if (this.partyStatus === 'closed') {
-        this.partyId = this.partyData['default'];
+        this.partyId = DEFAULT_PARTY_ID;
       }
     } else {
-      this.partyId = this.partyData['default'];
+      this.partyId = DEFAULT_PARTY_ID;
       this.hostess = null;
       this.partyStatus = null;
+    }
+  }
+
+  getParties() {
+    return PARTIES.filter(party => !party.rewards && party.status === 'open');
+  }
+
+  getDefaultParty() {
+    return this.getParty(DEFAULT_PARTY_ID);
+  }
+
+  getCurrentParty(): PartyData {
+    return this.getParty(this.currentPartyId);
+  }
+
+  getParty(partyId: string): PartyData {
+    return PARTIES.find(party => party.id === partyId);
+  }
+
+  getSelectionText() {
+    if (this.getCurrentParty().rewards) {
+      return `You've entered a rewards program for ${this.getCurrentParty().hostess}.`;
+    } else {
+      return `You've entered a party hosted by ${this.getCurrentParty().hostess}.`;
+    }
+  }
+
+  getErrorText() {
+    if (this.getCurrentParty() && this.getCurrentParty().status === 'closed') {
+      if (this.getCurrentParty().rewards) {
+        return `This rewards program was for ${this.getCurrentParty().hostess}.
+        However, it is now closed.
+        You may still continue by clicking "Buy Now".`;
+      } else {
+        return `This party was hosted by ${this.getCurrentParty().hostess}.
+        However, it is now closed.
+        You may still continue by clicking "Buy Now".`;
+      }
+    } else {
+      return `This is an unknown party/rewards number.
+        If you believe this to be in error, please double check the number or contact Traci Weber.`;
     }
   }
 
@@ -95,12 +84,13 @@ export class BuyButtonComponent {
    * @param modal The Modal to be shown
    */
   open(modal: TemplateRef<any>) {
-    this.partyId = this.partyData['default'];
-    this.updatePartyId(this.partyData['default']);
+    this.partyId = DEFAULT_PARTY_ID;
+    this.updatePartyId(DEFAULT_PARTY_ID);
     this.modalService.open(modal);
   }
 
   close() {
     this.modalService.dismissAll();
+    this.currentPartyId = null;
   }
 }

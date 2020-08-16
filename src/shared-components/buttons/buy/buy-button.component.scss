@@ -26,6 +26,10 @@
   border-radius: 15px;
 }
 
+#hostess-selector {
+  margin-left: 10px;
+}
+
 @media only screen and (max-width: 600px) {
   .buy-now-button {
     margin: 0 0 15px 0;
@@ -60,6 +64,7 @@
 
 .modal-body .new-party-id {
   margin-top: 10px;
+  font-size: 80%;
 }
 
 .modal-body .new-party-id .party-id-input {
@@ -73,4 +78,5 @@
   color: #EF8D84;
   font-size: 80%;
   font-style: italic;
+  white-space: pre-line;
 }
