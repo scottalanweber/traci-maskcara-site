@@ -16,7 +16,7 @@ export const PARTIES: PartyData[] = [
   {id: '107659', hostess: 'Jamie Bates', status: 'open', rewards: false},
   {id: '103781', hostess: 'Mindy Walker', status: 'closed', rewards: false},
   {id: '99611', hostess: 'Jo Ann McCullough', status: 'open', rewards: false},
-  {id: '99609', hostess: 'Bridget Pruitt', status: 'open', rewards: false},
+  {id: '99609', hostess: 'Bridget Pruitt', status: 'open', rewards: true},
   {id: '98205', hostess: 'Sara Cronin', status: 'open', rewards: true},
   {id: '98202', hostess: 'Michelle Nelson', status: 'open', rewards: true},
   {id: '98195', hostess: 'Susan LaGrone', status: 'open', rewards: false},
