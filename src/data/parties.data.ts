@@ -2,10 +2,13 @@ import {PartyData} from '../model/party-data';
 
 export const DEFAULT_PARTY_ID = '113903';
 export const PARTIES: PartyData[] = [
+  {id: '125027', hostess: 'Kelly Armstrong', status: 'open', rewards: false},
+  {id: '125023', hostess: 'Alicia Capps', status: 'open', rewards: false},
+  {id: '124468', hostess: 'Connie Weber', status: 'open', rewards: false},
   {id: '120591', hostess: 'CodyAnn Thueson', status: 'open', rewards: false},
   {id: '120482', hostess: 'Apryl Beck', status: 'open', rewards: false},
   {id: '117768', hostess: 'Vicki Nelson', status: 'open', rewards: true},
-  {id: '115828', hostess: 'Carolyn Thomas', status: 'open', rewards: false},
+  {id: '115828', hostess: 'Carolyn Thomas', status: 'closed', rewards: false},
   {id: '113903', hostess: 'A Beautifuleigh YOU Party!', status: 'open', rewards: true},
   {id: '113371', hostess: 'Jennifer Burns', status: 'closed', rewards: false},
   {id: '108951', hostess: 'Susan Eckburg', status: 'open', rewards: false},
