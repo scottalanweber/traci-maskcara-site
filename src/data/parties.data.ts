@@ -33,7 +33,7 @@ export const PARTIES: PartyData[] = [
   {id: '82139', hostess: 'Celeste Blake', status: 'open', rewards: true},
   {id: '80431', hostess: 'Ashley Brown', status: 'open', rewards: false},
   {id: '76444', hostess: 'Maggie Moore', status: 'closed', rewards: false},
-  {id: '76224', hostess: 'Kelly Armstrong', status: 'open', rewards: false},
+  {id: '76224', hostess: 'Kelly Armstrong', status: 'closed', rewards: false},
   {id: '74200', hostess: 'Lynette Baird', status: 'closed', rewards: false},
   {id: '61916', hostess: 'Melissa Tolley', status: 'open', rewards: true},
   {id: '60612', hostess: 'Beautifuleigh YOU', status: 'closed', rewards: true},
