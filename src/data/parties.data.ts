@@ -6,7 +6,7 @@ export const PARTIES: PartyData[] = [
   {id: '125023', hostess: 'Alicia Capps', status: 'open', rewards: false},
   {id: '124468', hostess: 'Connie Weber', status: 'open', rewards: false},
   {id: '120591', hostess: 'CodyAnn Thueson', status: 'closed', rewards: false},
-  {id: '120482', hostess: 'Apryl Beck', status: 'open', rewards: false},
+  {id: '120482', hostess: 'Apryl Beck', status: 'closed', rewards: false},
   {id: '117768', hostess: 'Vicki Nelson', status: 'open', rewards: true},
   {id: '115828', hostess: 'Carolyn Thomas', status: 'closed', rewards: false},
   {id: '113903', hostess: 'A Beautifuleigh YOU Party!', status: 'open', rewards: true},
