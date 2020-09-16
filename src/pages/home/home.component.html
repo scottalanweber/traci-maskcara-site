@@ -18,7 +18,13 @@
     <ngb-carousel>
       <ng-template ngbSlide *ngFor="let image of beforeAfterImages">
         <div>
-          <img src="{{image.url}}" alt="{{image.alt}}">
+          <picture>
+            <source srcset="{{image[0].url}}" type="{{image[0].type}}">
+            <source srcset="{{image[1].url}}" type="{{image[1].type}}" media="(max-width: 600px)">
+            <source srcset="{{image[2].url}}" type="{{image[2].type}}">
+            <source srcset="{{image[3].url}}" type="{{image[3].type}}" media="(max-width: 600px)">
+            <img src="{{image[2].url}}" alt="{{image[2].alt}}">
+          </picture>
         </div>
       </ng-template>
     </ngb-carousel>
