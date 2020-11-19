@@ -1,7 +1,8 @@
 import {PartyData} from '../model/party-data';
 
-export const DEFAULT_PARTY_ID = '113903';
+export const DEFAULT_PARTY_ID = '149130';
 export const PARTIES: PartyData[] = [
+  {id: '149130', hostess: 'A Beautifuleigh YOU Party!', status: 'open', rewards: true},
   {id: '146779', hostess: 'Tonya Wheeler', status: 'open', rewards: false},
   {id: '140627', hostess: 'Mary Begley', status: 'open', rewards: false},
   {id: '139646', hostess: 'Jennifer Behrens', status: 'open', rewards: true},
