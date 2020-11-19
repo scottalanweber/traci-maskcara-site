@@ -1,5 +1,6 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
+import {PartyDataService} from '../data/party-data.service';
 
 @Component({
   selector: 'app-root',
@@ -7,14 +8,19 @@ import {Router} from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit{
   public title = 'traci-maskcara-site';
 
-  constructor(private router: Router) {
+  constructor(private router: Router,
+              private partyDataService: PartyDataService) {
     const path = localStorage.getItem('path');
     if (path) {
       localStorage.removeItem('path');
       this.router.navigate([path]);
     }
+  }
+
+  ngOnInit(): void {
+    this.partyDataService.fetchParties();
   }
 }

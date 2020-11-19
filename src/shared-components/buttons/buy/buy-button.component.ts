@@ -1,7 +1,7 @@
-import {Component, Input, TemplateRef} from '@angular/core';
+import {Component, Input, OnInit, TemplateRef} from '@angular/core';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {PartyData} from '../../../model/party-data';
-import {DEFAULT_PARTY_ID, PARTIES} from '../../../data/parties.data';
+import {PartyDataService} from '../../../data/party-data.service';
 
 @Component({
   selector: 'app-buy-button',
@@ -9,18 +9,40 @@ import {DEFAULT_PARTY_ID, PARTIES} from '../../../data/parties.data';
   styleUrls: ['./buy-button.component.scss']
 })
 
-export class BuyButtonComponent {
+export class BuyButtonComponent implements OnInit {
   @Input() showPartyLink: boolean;
 
+  public parties: PartyData[];
   public partyId: string;
   public currentPartyId: string = null;
+  public defaultPartyId: string;
   public hostess: string;
   public partyStatus: string;
 
-  constructor(private modalService: NgbModal) {}
+  constructor(private modalService: NgbModal,
+              private partyDataService: PartyDataService) {}
+
+  ngOnInit(): void {
+    this.partyDataService.parties$.subscribe(partiesData => {
+        if(partiesData) {
+          this.parties = [];
+          partiesData.forEach(party => {
+            const partyData = new PartyData();
+            partyData.id = party[0];
+            partyData.hostess = party[1];
+            partyData.status = party[2]?.toLowerCase();
+            partyData.rewards = party[3]?.toLowerCase() === 'true';
+            this.parties.push(partyData);
+            if(party[4]?.toLowerCase() === 'default') {
+              this.defaultPartyId = party[0];
+            }
+          });
+        }
+      });
+  }
 
   updatePartyId(currentPartyId: any) {
-    if (currentPartyId !== DEFAULT_PARTY_ID) {
+    if (currentPartyId !== this.defaultPartyId) {
       this.currentPartyId = currentPartyId;
     }
 
@@ -29,21 +51,19 @@ export class BuyButtonComponent {
       this.hostess = this.getParty(currentPartyId).hostess;
       this.partyStatus = this.getParty(currentPartyId).status;
       if (this.partyStatus === 'closed') {
-        this.partyId = DEFAULT_PARTY_ID;
+        this.partyId = this.defaultPartyId;
       }
     } else {
-      this.partyId = DEFAULT_PARTY_ID;
+      this.partyId = this.defaultPartyId;
       this.hostess = null;
       this.partyStatus = null;
     }
   }
 
-  getParties() {
-    return PARTIES.filter(party => !party.rewards && party.status === 'open');
-  }
-
-  getDefaultParty() {
-    return this.getParty(DEFAULT_PARTY_ID);
+  getParties(): PartyData[] {
+    if (this.parties) {
+      return this.parties.filter(party => !party.rewards && party.status === 'open');
+    }
   }
 
   getCurrentParty(): PartyData {
@@ -51,10 +71,19 @@ export class BuyButtonComponent {
   }
 
   getParty(partyId: string): PartyData {
-    return PARTIES.find(party => party.id === partyId);
+    if (this.parties) {
+      return this.parties.find(party => party.id === partyId);
+    } else {
+      return {
+        id: '1234',
+        hostess: 'test',
+        status: 'closed',
+        rewards: true
+      };
+    }
   }
 
-  getSelectionText() {
+  getSelectionText(): string {
     if (this.getCurrentParty().rewards) {
       return `You've entered a rewards program for ${this.getCurrentParty().hostess}.`;
     } else {
@@ -62,7 +91,7 @@ export class BuyButtonComponent {
     }
   }
 
-  getErrorText() {
+  getErrorText(): string {
     if (this.getCurrentParty() && this.getCurrentParty().status === 'closed') {
       if (this.getCurrentParty().rewards) {
         return `This rewards program was for ${this.getCurrentParty().hostess}.
@@ -84,8 +113,8 @@ export class BuyButtonComponent {
    * @param modal The Modal to be shown
    */
   open(modal: TemplateRef<any>) {
-    this.partyId = DEFAULT_PARTY_ID;
-    this.updatePartyId(DEFAULT_PARTY_ID);
+    this.partyId = this.defaultPartyId;
+    this.updatePartyId(this.defaultPartyId);
     this.modalService.open(modal);
   }
 

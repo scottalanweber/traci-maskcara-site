@@ -18,6 +18,8 @@ import {ServicesComponent} from '../pages/services/services.component';
 import {HomeComponent} from '../pages/home/home.component';
 import {AboutComponent} from '../pages/about/about.component';
 import {SortPipe} from '../pipes/sort.pipe';
+import {PartyDataService} from '../data/party-data.service';
+import {GoogleSheetsClient} from '../clients/google.sheets.client';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,12 @@ import {SortPipe} from '../pipes/sort.pipe';
     ReactiveFormsModule,
     NgbModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    GoogleSheetsClient,
+    PartyDataService
+  ],
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule { }

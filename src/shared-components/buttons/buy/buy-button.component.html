@@ -1,5 +1,5 @@
 <button class="buy-now-button">
-  <a href="https://traciweber.seintofficial.com/en/shop/party-{{getDefaultParty().id}}/shop-all" target="_blank">Buy Seint</a>
+  <a href="https://traciweber.seintofficial.com/en/shop/party-{{defaultPartyId}}/shop-all" target="_blank">Buy Seint</a>
 </button>
 <a *ngIf="showPartyLink" class="buy-now-party" (click)="open(partyInfo)">Have a Hostess?</a>
 
@@ -28,13 +28,13 @@
         <label for="partyId">Or enter your Party/Rewards # here: </label>
         <input id="partyId" class="party-id-input" type="text" [(ngModel)]="currentPartyId" (ngModelChange)="updatePartyId($event)" />
       </p>
-      <p *ngIf="partyId !== getDefaultParty().id && partyStatus === 'open'">
+      <p *ngIf="partyId !== defaultPartyId && partyStatus === 'open'">
         {{getSelectionText()}}
       </p>
       <p *ngIf="partyStatus === 'closed'" class="error">
         {{getErrorText()}}
       </p>
-      <p *ngIf="currentPartyId !== getDefaultParty().id && hostess === null" class="error">
+      <p *ngIf="currentPartyId !== defaultPartyId && hostess === null" class="error">
         {{getErrorText()}}
       </p>
     </div>
